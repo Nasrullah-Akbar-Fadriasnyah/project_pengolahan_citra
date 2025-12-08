@@ -1,114 +1,103 @@
-<<<<<<< HEAD
 Image Enhancer – Single & Batch Processing (Tkinter GUI)
 
-Aplikasi ini merupakan tool image enhancement berbasis Python dengan GUI menggunakan Tkinter, dilengkapi pipeline peningkatan kualitas gambar yang meliputi:
+Aplikasi ini merupakan tool peningkatan kualitas gambar berbasis Python dengan antarmuka GUI Tkinter. Aplikasi mampu melakukan peningkatan kualitas gambar secara single maupun batch, lengkap dengan preview Before–After secara real-time.
 
-Auto White Balance (Gray World)
-
-Auto Exposure Correction (Contrast Stretching)
-
-Denoise (Bilateral Filter)
-
-Face Beauty (Smoothing area wajah)
-
-HDR-like Enhancement (Detail + CLAHE)
-
-Sharpening (Unsharp Mask)
-
-Final Color Tone Adjustment
-
-Pembuatan gambar Before–After
-
-Mode single processing & batch processing
-
-Aplikasi dapat memperbaiki ratusan gambar sekaligus dan menampilkan preview Before/After secara real-time.
+Tool ini dirancang untuk memproses ratusan foto sekaligus dan menghasilkan output gambar berkualitas lebih baik menggunakan pipeline enhancement modern.
 
 ✨ Fitur Utama
+
 1. Enhancement Pipeline
 
-Pipeline terdiri dari beberapa langkah yang dapat diaktifkan/di-nonaktifkan:
+Pipeline terdiri dari beberapa tahap yang dapat diaktifkan atau dinonaktifkan sesuai kebutuhan:
 
-Auto White Balance (Gray World)
+- Auto White Balance (Gray World)
 
-Auto Exposure (Kontras otomatis)
+- Auto Exposure Correction (Contrast Stretching)
 
-Denoising (Bilateral)
+- Denoise (Bilateral Filter)
 
-Face Beauty Retouch
+- Face Beauty Retouching
 
-HDR-like Local Contrast
+- HDR-like Enhancement (Detail + CLAHE)
 
-Sharpening
+- Sharpening (Unsharp Mask)
 
-Final Tone/Saturation
+- Final Color Tone & Saturation Adjustment
+
+Setiap tahap dapat digabungkan untuk menghasilkan output yang optimal.
 
 2. GUI Berbasis Tkinter
 
-Preview BEFORE dan AFTER
+Fitur antarmuka mencakup:
 
-Menampilkan daftar file gambar dari folder input
+- Preview BEFORE dan AFTER
 
-Checkbox untuk mengatur pipeline
+- Daftar file gambar dari folder input
 
-Tombol:
+- Checkbox untuk mengatur pipeline enhancement
 
-Enhance Selected
+- Tombol:
 
-Enhance All (Batch)
+  - Enhance Selected
 
-Save Result
+  - Enhance All (Batch)
 
-Progress bar untuk batch processing
+  - Save Result
+
+- Progress bar untuk proses batch
 
 3. Batch Image Processing
 
-Semua gambar dalam folder dapat diproses otomatis dengan:
+Semua gambar pada folder input dapat diproses otomatis dengan output:
 
-Hasil akhir (*_final.jpg)
+`*_final.jpg` → hasil enhancement
 
-Before–After (*_before_after.jpg)
+`*_before_after.jpg` → gambar gabungan Before–After
 
-📦 Struktur File
+Aplikasi mampu menangani ratusan gambar dalam satu kali proses.
+
+📦 Struktur Direktori
 project/
-│── enhancer.py          # file utama (kode GUI dan pipeline)
-│── README.md            # dokumentasi
+│── enhancer.py # file utama berisi GUI & pipeline
+│── README.md # dokumentasi
 
 ⚙️ Dependensi
 
-Pastikan Python 3 sudah terpasang.
+Pastikan Python 3 telah terpasang.
+
 Instal modul yang diperlukan:
 
 pip install opencv-python pillow numpy
 
+Tkinter biasanya sudah termasuk dalam instalasi Python standar. Jika belum, install sesuai OS masing-masing.
 
-Tkinter biasanya sudah tersedia di Python standar. Jika tidak, install sesuai OS.
-
-▶️ Cara Menjalankan Aplikasi
+▶️ Cara Menjalankan
 
 Simpan file utama sebagai enhancer.py
 
-Pastikan dependensi telah di-install
+Pastikan seluruh dependensi telah ter-install
 
 Jalankan aplikasi:
 
 python enhancer.py
 
-🧭 Cara Menggunakan
+🧭 Cara Menggunakan Aplikasi
+
 1. Pilih Folder Input
 
-Klik Pilih Folder Input → pilih folder yang berisi foto.
+Klik Pilih Folder Input lalu pilih folder berisi gambar.
 
 2. Pilih Folder Output
 
-Klik Pilih Folder Output → lokasi penyimpanan hasil.
+Tentukan lokasi penyimpanan hasil.
 
 3. Pilih Gambar
 
-Klik salah satu file di list untuk melihat preview BEFORE.
+Klik salah satu gambar dari daftar untuk melihat preview BEFORE.
 
 4. Atur Pipeline
 
-Centang/uncentang opsi enhancement sesuai kebutuhan.
+Centang atau hapus centang fitur enhancement sesuai kebutuhan.
 
 5. Enhance Selected
 
@@ -116,61 +105,57 @@ Memproses satu gambar dan menampilkan hasil AFTER.
 
 6. Save Result
 
-Menyimpan:
+Menyimpan dua file:
 
-nama_final.jpg → hasil enhancement
+- `nama_final.jpg` → hasil akhir setelah enhancement
 
-nama_before_after.jpg → gabungan BEFORE & AFTER
+- `nama_before_after.jpg` → gabungan Before–After
 
 7. Enhance All (Batch)
 
-Memproses seluruh gambar dalam folder input dan menyimpan semuanya ke output folder.
+Memproses semua gambar dalam folder input dan menyimpan hasilnya ke folder output.
 
 📘 Penjelasan Singkat Fungsi Utama
-auto_white_balance_grayworld
+**auto_white_balance_grayworld**
 
-Melakukan white balance menggunakan asumsi Gray World.
+Melakukan white balance otomatis dengan asumsi Gray World.
 
-auto_exposure_stretch
+**auto_exposure_stretch**
 
-Meningkatkan brightness/contrast berdasarkan percentile 1–99.
+Mengatur brightness dan contrast menggunakan percentile 1–99.
 
-bilateral_denoise
+**bilateral_denoise**
 
-Mengurangi noise tanpa menghilangkan tepi.
+Mengurangi noise tanpa menghilangkan detail tepi.
 
-face_beauty_filter
+**face_beauty_filter**
 
-Mendeteksi wajah dengan Haar Cascade.
+- Mendeteksi wajah menggunakan Haar Cascade
 
-Melakukan smoothing lokal pada area wajah.
+- Melakukan smoothing lokal pada area wajah
 
-hdr_like_local_contrast
+**hdr_like_local_contrast**
 
-Menggabungkan detailEnhance + CLAHE → efek pseudo-HDR.
+Menggabungkan detailEnhance + CLAHE untuk menghasilkan efek pseudo-HDR.
 
-unsharp_mask
+**unsharp_mask**
 
-Menambah ketajaman (sharpening).
+Memberikan efek sharpening pada gambar.
 
-make_before_after_image
+**make_before_after_image**
 
-Membuat file Before–After lengkap dengan label dan border.
+Membuat gambar gabungan Before–After lengkap dengan label dan border.
 
 📝 Catatan Penting
 
-Pastikan folder input berisi file gambar format: .jpg, .jpeg, .png, .bmp
+- Pastikan folder input berisi file dengan format: .jpg, .jpeg, .png, .bmp
 
-Program otomatis melewati file rusak atau tidak dapat dibaca
+- File rusak akan dilewati otomatis
 
-Haar cascade di-load otomatis dari cv2.data.haarcascades
+- Haar Cascade di-load dari cv2.data.haarcascades
 
-Preview pada GUI di-resize agar tidak membebani kinerja
+- Preview otomatis di-resize agar aplikasi tetap ringan
 
 📄 Lisensi
 
-Proyek ini bebas digunakan untuk keperluan penelitian, tugas kuliah, atau modifikasi pribadi.
-=======
-# project_pengolahan_citra
-tugas akhir mata kuliah pengolahan citra
->>>>>>> 67169620f543267f4e883f5d20e42b582b1913cf
+Proyek ini bebas digunakan untuk keperluan penelitian, tugas kuliah, maupun modifikasi pribadi.
