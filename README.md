@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Image Enhancer – Single & Batch Processing (Tkinter GUI)
 
 Aplikasi ini merupakan tool image enhancement berbasis Python dengan GUI menggunakan Tkinter, dilengkapi pipeline peningkatan kualitas gambar yang meliputi:
@@ -169,3 +170,7 @@ Preview pada GUI di-resize agar tidak membebani kinerja
 📄 Lisensi
 
 Proyek ini bebas digunakan untuk keperluan penelitian, tugas kuliah, atau modifikasi pribadi.
+=======
+# project_pengolahan_citra
+tugas akhir mata kuliah pengolahan citra
+>>>>>>> 67169620f543267f4e883f5d20e42b582b1913cf
